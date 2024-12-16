@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Planner</h1>
+        <div id="header">
+            Thời gian khởi hành  
+            <input type="time" id="start-time" placeholder="Thời gian khởi hành">
+            <button id="create-card">Tạo thẻ mới</button>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    </header>
+
+
+    <main>
+        Tổng chi phí:<br>
+        <div id="totalCost"></div>
+        <div id="card-container" class="card-container"></div>
+        <div id="timeline-container">
+            <div id="timeline"></div> 
+        </div>
+
+    </main>
+    <!-- Modal chỉnh sửa -->
+    <div id="edit-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Chỉnh Sửa Thông Tin Thẻ</h2>
+            <form id="edit-form" class="edit-form">
+                <label>
+                    Hoạt động:
+                    <input type="text" id="edit-action" placeholder="Nhập tên hoạt động">
+                </label>
+                <label>
+                    Địa điểm:
+                    <input type="text" id="edit-location" placeholder="Nhập địa điểm">
+                </label>
+                <label>
+                    Thời gian:
+                    <input type="number" id="edit-time" placeholder="Nhập thời gian" step="any" required>
+                    <select id="edit-time-unit">
+                        <option value="seconds">Giây</option>
+                        <option value="minutes">Phút</option>
+                        <option value="hours">Giờ</option>
+                    </select>
+                </label> 
+                <label>
+                    Chi phí:
+                    <input type="number" step="0.01" id="edit-cost" placeholder="Nhập chi phí">đ
+                </label>
+                Ghi chú:
+                <div id="editor" class="editor" contenteditable="true">
+                   
+                </div>
+                
+                <button type="submit">Lưu</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
